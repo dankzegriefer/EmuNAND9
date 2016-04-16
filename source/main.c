@@ -17,32 +17,32 @@ MenuInfo menu[] =
         BUILD_NAME, 4,
         #endif
         {
-            { "Complete EmuNAND Setup",       &CompleteSetupEmuNand,  0 },
-            { "Complete RedNAND Setup",       &CompleteSetupEmuNand,  SD_SETUP_MINSIZE | N_WREDNAND },
-            { "SD Format Options...",         NULL,                   SUBMENU_START + 0 },
-            { "EmuNAND Manager Options...",   NULL,                   SUBMENU_START + 1 }
+            { "Complete EmuNAND Setup",       &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "Complete RedNAND Setup",       &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "SD Format Options...",         &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "EmuNAND Manager Options...",   &InjectNand,            N_EMUNAND | N_DIRECTCOPY }
         }
     },
     {
         "SD Format Options", 4,
         {
-            { "Format SD (no EmuNAND)",       &FormatSdCard,          0 },
-            { "Format SD (EmuNAND default)",  &FormatSdCard,          SD_SETUP_EMUNAND },
-            { "Format SD (EmuNAND minsize)",  &FormatSdCard,          SD_SETUP_EMUNAND | SD_SETUP_MINSIZE },
-            { "Format SD (EmuNAND legacy)",   &FormatSdCard,          SD_SETUP_EMUNAND | SD_SETUP_LEGACY }
+            { "Format SD (no EmuNAND)",       &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "Format SD (EmuNAND default)",  &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "Format SD (EmuNAND minsize)",  &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "Format SD (EmuNAND legacy)",   &InjectNand,            N_EMUNAND | N_DIRECTCOPY }
         }
     },
     {
         "EmuNAND Manager Options", 8,
         {
             { "Clone SysNAND to EmuNAND",     &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
-            { "Clone SysNAND to RedNAND",     &InjectNand,            N_EMUNAND | N_WREDNAND | N_DIRECTCOPY },
-            { "Restore file to EmuNAND",      &InjectNand,            N_EMUNAND },
+            { "Clone SysNAND to RedNAND",     &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "Restore file to EmuNAND",      &InjectNand,            N_EMUNAND | N_DIRECTCOPY},
             { "Restore file to RedNAND",      &InjectNand,            N_EMUNAND | N_WREDNAND},
-            { "Backup SysNAND to file",       &DumpNand,              0 },
-            { "Backup EmuNAND to file",       &DumpNand,              N_EMUNAND },
-            { "Convert EmuNAND -> RedNAND",   &ConvertEmuNand,        N_EMUNAND | N_WREDNAND },
-            { "Convert RedNAND -> EmuNAND",   &ConvertEmuNand,        N_EMUNAND }
+            { "Backup SysNAND to file",       &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "Backup EmuNAND to file",       &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "Convert EmuNAND -> RedNAND",   &InjectNand,            N_EMUNAND | N_DIRECTCOPY },
+            { "Convert RedNAND -> EmuNAND",   &InjectNand,            N_EMUNAND | N_DIRECTCOPY }
         }
     },
     {
